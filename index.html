@@ -18,7 +18,8 @@
     --mono:"Share Tech Mono", "SFMono-Regular", Menlo, monospace;
     --pad:clamp(28px,5vw,88px);
   }
-  *{box-sizing:border-box}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  :focus:not(:focus-visible){outline:none}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   @supports (overflow-x:clip){html{overflow-x:clip}}  /* clip, not hidden: hidden would turn body into a scroll container and break the sticky panels */
   body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.7;letter-spacing:.005em;-webkit-font-smoothing:antialiased}
@@ -40,14 +41,14 @@
   html[data-theme="dark"] body{background:var(--paper);color:var(--ink)}
   html[data-theme="dark"] .nav{background:linear-gradient(180deg,rgba(34,34,37,.8),rgba(28,28,31,.72));border-bottom-color:rgba(60,60,66,.8);box-shadow:none}
   html[data-theme="dark"] .menu{background:#222225;border-color:#36363b}
-  html[data-theme="dark"] .menu a:hover{background:#2b2b2f}
-  html[data-theme="dark"] .burger:hover{background:rgba(255,255,255,.06)}
+  @media (hover:hover){html[data-theme="dark"] .menu a:hover{background:#2b2b2f}}
+  @media (hover:hover){html[data-theme="dark"] .burger:hover{background:rgba(255,255,255,.06)}}
   html[data-theme="dark"] .burger span,html[data-theme="dark"] .burger span::before,html[data-theme="dark"] .burger span::after{background:var(--ink)}
   html[data-theme="dark"] .burger[aria-expanded="true"] span{background:transparent}
   html[data-theme="dark"] .theme{border-color:#2c2c31}
   .theme{width:40px;height:40px;display:grid;place-items:center;border-radius:8px;color:var(--ink);margin-right:2px}
-  .theme:hover{background:rgba(0,0,0,.05)}
-  html[data-theme="dark"] .theme:hover{background:rgba(255,255,255,.06)}
+  @media (hover:hover){.theme:hover{background:rgba(0,0,0,.05)}}
+  @media (hover:hover){html[data-theme="dark"] .theme:hover{background:rgba(255,255,255,.06)}}
   .theme svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .theme .sun{display:block}.theme .moon{display:none}
   html[data-theme="dark"] .theme .sun{display:none}html[data-theme="dark"] .theme .moon{display:block}
@@ -56,13 +57,13 @@
   html[data-theme="dark"] .scrollpill{background:#26262a}html[data-theme="dark"] .scrollpill:hover{background:#303035}
   html[data-theme="dark"] .tape{background:#000}
   html[data-theme="dark"] .tape .pill{background:rgba(30,30,33,.85);color:var(--ink);border-color:rgba(255,255,255,.18)}
-  html[data-theme="dark"] .tape .pill:hover{background:var(--ink);color:#0f0f10;border-color:var(--ink)}
+  @media (hover:hover){html[data-theme="dark"] .tape .pill:hover{background:var(--ink);color:#0f0f10;border-color:var(--ink)}}
   html[data-theme="dark"] .lc{background:#222225;border-color:#34343a;box-shadow:0 1px 2px rgba(0,0,0,.4),0 16px 34px -26px rgba(0,0,0,.8)}
   html[data-theme="dark"] .lc::before{color:#3a3a41}
   html[data-theme="dark"] .lc .av{background:#303035}
   html[data-theme="dark"] .lc .pf{background:#2c2c31}
   html[data-theme="dark"] .about .photo{background:linear-gradient(160deg,#26262a,#1e1e21)}
-  html[data-theme="dark"] footer .cta:hover{background:var(--ink);color:#0f0f10}
+  @media (hover:hover){html[data-theme="dark"] footer .cta:hover{background:var(--ink);color:#0f0f10}}
   html[data-theme="dark"] #work .side{background:var(--paper)}
   html[data-theme="dark"] .folder-link{color:var(--ink)}
   html[data-theme="dark"] .tv .set{filter:drop-shadow(0 22px 22px rgba(0,0,0,.5))}
@@ -75,7 +76,7 @@
   html[data-theme="dark"] .folder .paper{box-shadow:0 -1px 2px rgba(0,0,0,.5)}
   /* hamburger + dropdown menu */
   .burger{width:40px;height:40px;display:grid;place-items:center;border-radius:8px}
-  .burger:hover{background:rgba(0,0,0,.05)}
+  @media (hover:hover){.burger:hover{background:rgba(0,0,0,.05)}}
   .burger span{display:block;width:20px;height:1.5px;background:var(--ink);position:relative;transition:transform .25s,opacity .2s}
   .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:1.5px;background:var(--ink);transition:transform .25s,top .25s}
   .burger span::before{top:-6px}.burger span::after{top:6px}
@@ -85,7 +86,7 @@
   .menu{position:absolute;right:clamp(16px,2.6vw,40px);top:calc(100% + 8px);min-width:220px;background:#fff;border:1px solid #d6d3ca;border-radius:12px;padding:8px;box-shadow:0 20px 40px -20px rgba(0,0,0,.35);display:none}
   .menu[data-open="true"]{display:block}
   .menu a{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
-  .menu a:hover{background:#f1f0eb}
+  @media (hover:hover){.menu a:hover{background:#f1f0eb}}
   .menu a small{font-family:var(--display);font-style:italic;font-size:14px;letter-spacing:0;text-transform:none;color:var(--graphite)}
   .nav .wrap{position:relative}
 
@@ -105,7 +106,7 @@
   .intro .name{display:block;white-space:nowrap;font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(48px,8.6vh,132px);line-height:.95;letter-spacing:-.02em;margin:0 0 .18em}
   .intro .role{display:block;font-weight:500;font-size:clamp(13px,1.8vh,20px);line-height:1.5;letter-spacing:.01em;color:var(--graphite);white-space:nowrap}
   .scrollhint{font-family:var(--mono);font-size:clamp(10px,1.4vh,15px);letter-spacing:.16em;text-transform:uppercase;color:var(--graphite)}
-  .scrollhint:hover{color:var(--ink)}
+  @media (hover:hover){.scrollhint:hover{color:var(--ink)}}
   @media (max-width:900px){
     .hero{height:auto;min-height:calc(var(--vh) - var(--nav))}
     .hero .wrap{display:grid;gap:24px;padding:32px var(--pad) 64px}
@@ -134,7 +135,8 @@
   .tv .tube::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.04) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
   .tv .tube .gloss{position:absolute;inset:0;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.02) 32%,rgba(255,255,255,0) 50%)}
   .tv .tube .hint{position:absolute;left:50%;bottom:8%;transform:translate(-50%,6px);font-family:var(--mono);font-size:clamp(9px,.8vw,11px);letter-spacing:.18em;text-transform:uppercase;color:#f2f0ea;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 12px;white-space:nowrap;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;backdrop-filter:blur(4px)}
-  .tv .tube:hover .hint,.tv .tube:focus-visible .hint{opacity:1;transform:translate(-50%,0)}
+  .tv .tube:focus-visible .hint{opacity:1;transform:translate(-50%,0)}
+  @media (hover:hover){.tv .tube:hover .hint{opacity:1;transform:translate(-50%,0)}}
   .tv .tube:focus-visible{outline:2px solid #fff;outline-offset:-4px}
 
   /* theatre — the showreel at full size with sound, on its own layer */
@@ -143,7 +145,7 @@
   .theatre video,.theatre iframe{width:100%;height:100%;object-fit:contain;background:#000;border:0}
   .theatre video[hidden]{display:none}
   .theatre .close{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:10px 14px;cursor:pointer;backdrop-filter:blur(6px)}
-  .theatre .close:hover{background:rgba(255,255,255,.25)}
+  @media (hover:hover){.theatre .close:hover{background:rgba(255,255,255,.25)}}
 
   /* sections */
   section{min-height:calc(var(--vh) - var(--nav));display:grid;align-content:center;padding:48px 0;border-bottom:1px solid var(--line)}
@@ -162,10 +164,12 @@
   .tape .poster{position:absolute;inset:0;background:#111}
   .tape .poster img.bg{display:none}
   .tape .poster img.frame{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) sepia(.28) contrast(1.04) brightness(.86);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .8s ease}
-  .tape:hover .poster img.frame,.tape.playing .poster img.frame{filter:none}
+  .tape.playing .poster img.frame{filter:none}
+  @media (hover:hover){.tape:hover .poster img.frame{filter:none}}
   .tape .poster::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(18,16,12,.35),rgba(18,16,12,0) 40%,rgba(18,16,12,0) 60%,rgba(18,16,12,.55));transition:opacity .6s}
-  .tape:hover .poster::after,.tape.playing .poster::after{opacity:.6}
-  .tape:hover .poster img.frame{transform:scale(1.015)}
+  .tape.playing .poster::after{opacity:.6}
+  @media (hover:hover){.tape:hover .poster::after{opacity:.6}}
+  @media (hover:hover){.tape:hover .poster img.frame{transform:scale(1.015)}}
   .tape .mark{position:absolute;left:clamp(24px,3vw,44px);right:clamp(24px,3vw,44px);top:clamp(22px,3vw,40px);z-index:2;font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(34px,4.2vw,76px);line-height:1;letter-spacing:-.015em;color:#f4f1ea;pointer-events:none;transition:opacity .5s}
   .tape .mark .k{display:block;font-family:var(--mono);font-style:normal;font-size:clamp(9px,.75vw,12px);letter-spacing:.18em;text-transform:uppercase;color:rgba(244,241,234,.8);margin-bottom:14px}
   .tape .mark .t{display:block;font-family:var(--sans);font-style:normal;font-weight:500;font-size:clamp(12px,.95vw,16px);letter-spacing:.01em;color:rgba(244,241,234,.85);margin-top:12px;max-width:40ch}
@@ -176,14 +180,14 @@
   .tape .hit:focus-visible{outline:3px solid #fff;outline-offset:-6px}
   .tape .pill small{font-family:var(--mono);font-size:.42em;letter-spacing:.12em;color:inherit;opacity:.7;margin-right:6px}
   .tape .pill{position:absolute;left:clamp(24px,3vw,44px);bottom:clamp(24px,4vh,44px);z-index:3;font-family:var(--display);font-size:clamp(20px,1.8vw,28px);color:var(--ink);background:rgba(255,255,255,.82);border:1px solid rgba(0,0,0,.18);border-radius:999px;padding:12px 26px;backdrop-filter:blur(8px);cursor:pointer;display:flex;gap:12px;align-items:center;transition:background .2s,color .2s}
-  .tape .pill:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  @media (hover:hover){.tape .pill:hover{background:var(--ink);color:#fff;border-color:var(--ink)}}
   .tape.playing .pill{background:var(--tally);color:#fff;border-color:var(--tally)}
   .tape .badge{position:absolute;right:clamp(24px,3vw,44px);bottom:clamp(24px,4vh,44px);z-index:3;width:clamp(96px,9vw,130px);aspect-ratio:1;display:grid;place-items:center;color:var(--ink);text-decoration:none}
   .tape .badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 14s linear infinite}
   .tape .badge svg text{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;fill:currentColor}
   .tape .badge circle{fill:rgba(255,255,255,.82);stroke:rgba(0,0,0,.18)}
   .tape .badge i{font-style:normal;font-size:22px;position:relative}
-  .tape .badge:hover{color:var(--tally)}
+  @media (hover:hover){.tape .badge:hover{color:var(--tally)}}
   @keyframes spin{to{transform:rotate(360deg)}}
   .tape .load,.tape .cl{display:none}
   @media (max-width:900px){
@@ -203,36 +207,42 @@
   @media (prefers-reduced-motion:reduce){.tape .badge svg{animation:none}}
   /* archive folder — white room, one folder, opens on hover, click opens the archive in a new tab */
   #all{align-content:center;justify-items:center}
-  .folder-link{display:flex;align-items:center;gap:clamp(28px,4vw,56px);text-decoration:none;color:var(--ink);padding:40px;perspective:900px}
+  .folder-link{--fs:1;display:flex;align-items:center;gap:clamp(28px,4vw,56px);text-decoration:none;color:var(--ink);padding:40px;perspective:900px}
   .folder-link .word{font-family:var(--display);font-size:clamp(36px,4.2vw,60px);line-height:1;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-  .folder-link:hover .word.l{transform:translateX(-10px)}
-  .folder-link:hover .word.r{transform:translateX(10px)}
+  @media (hover:hover){.folder-link:hover .word.l{transform:translateX(-10px)}}
+  @media (hover:hover){.folder-link:hover .word.r{transform:translateX(10px)}}
   .folder{position:relative;display:block;width:238px;height:190px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
   .folder .back{position:absolute;left:0;top:0;width:100%;height:100%;border-radius:16px;background:linear-gradient(176deg,#dcdedf 5%,rgba(187,188,189,.78) 40%,#c9cbcd 100%)}
   .folder .back::before{content:"";position:absolute;left:0;top:-14px;width:40%;height:30px;border-radius:12px 14px 0 0;background:#dcdedf;clip-path:polygon(0 0,82% 0,100% 100%,0 100%)}
   .folder .paper{position:absolute;display:grid;place-items:end start;padding:8px 10px;border-radius:10px;overflow:hidden;box-shadow:0 -1px 2px rgba(120,120,120,.25);color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
   .folder .paper img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.5) contrast(1.05);transition:filter .5s}
-  .folder-link:hover .paper img{filter:none}
+  @media (hover:hover){.folder-link:hover .paper img{filter:none}}
   .folder .p1{left:77px;top:12px;width:160px;height:121px;background:linear-gradient(150deg,#1f2a3c,#3b5378);transform:rotate(6deg);z-index:1}
   .folder .p2{left:42px;top:22px;width:122px;height:126px;background:linear-gradient(150deg,#3a1d1d,#7a3b3b);transform:rotate(-1deg);z-index:2}
   .folder .p3{left:94px;top:48px;width:102px;height:102px;background:linear-gradient(150deg,#243a2a,#3f6b4a);transform:rotate(2deg);z-index:3}
   .folder .front{position:absolute;left:0;top:43px;width:238px;height:147px;border-radius:16px;display:grid;place-items:center;color:#b9b9bd;background:linear-gradient(0deg,#fff 0%,#fafafa 54%,#e4e4e7 100%);box-shadow:inset 0 2px 0 #fff,0 12px 30px -22px rgba(0,0,0,.35);transform-origin:50% 100%;transition:transform .55s cubic-bezier(.2,.8,.2,1);z-index:4;overflow:hidden}
   .folder .front::before{content:"";position:absolute;left:-94px;top:12px;width:97px;height:180px;background:#fff;transform:rotate(15deg);opacity:.9}
   .folder .front svg{width:36px;height:36px;position:relative}
-  .folder-link:hover .folder,.folder-link.open .folder{transform:scale(1.04) translateY(-4px)}
-  .folder-link:hover .front,.folder-link.open .front{transform:rotateX(-32deg)}
-  .folder-link:hover .p1,.folder-link.open .p1{transform:translate(6px,-46px) rotate(9deg)}
-  .folder-link:hover .p2,.folder-link.open .p2{transform:translate(-8px,-56px) rotate(-6deg)}
-  .folder-link:hover .p3,.folder-link.open .p3{transform:translate(4px,-40px) rotate(3deg)}
+  .folder-link.open .folder{transform:scale(calc(var(--fs)*1.04)) translateY(-4px)}
+  @media (hover:hover){.folder-link:hover .folder{transform:scale(calc(var(--fs)*1.04)) translateY(-4px)}}
+  .folder-link.open .front{transform:rotateX(-32deg)}
+  @media (hover:hover){.folder-link:hover .front{transform:rotateX(-32deg)}}
+  .folder-link.open .p1{transform:translate(6px,-46px) rotate(9deg)}
+  @media (hover:hover){.folder-link:hover .p1{transform:translate(6px,-46px) rotate(9deg)}}
+  .folder-link.open .p2{transform:translate(-8px,-56px) rotate(-6deg)}
+  @media (hover:hover){.folder-link:hover .p2{transform:translate(-8px,-56px) rotate(-6deg)}}
+  .folder-link.open .p3{transform:translate(4px,-40px) rotate(3deg)}
+  @media (hover:hover){.folder-link:hover .p3{transform:translate(4px,-40px) rotate(3deg)}}
   .folder-link.open .paper img{filter:none}
   .folder-link:focus-visible{outline:2px solid var(--ink);outline-offset:8px;border-radius:12px}
   @media (max-width:700px){
     #all{min-height:72vh}
     .folder-link{gap:16px;padding:24px 8px}
     .folder-link .word{font-size:clamp(26px,7.5vw,34px)}
-    .folder{zoom:.74}
+    .folder-link{--fs:.74}
   }
-  @media (max-width:360px){.folder{zoom:.64}}
+  @media (max-width:360px){.folder-link{--fs:.64}}
+  .folder{transform:scale(var(--fs));margin:calc(190px*(var(--fs) - 1)/2) calc(238px*(var(--fs) - 1)/2)}
   @media (prefers-reduced-motion:reduce){.folder,.folder .front,.folder .paper,.folder-link .word{transition:none}}
   /* kind words — four columns of comments drifting up and down, fading at the edges */
   #love{background:var(--paper);color:var(--ink);min-height:0;display:block;padding:clamp(72px,10vh,120px) 0 0;position:relative;overflow:hidden;border-bottom:0}
@@ -250,7 +260,7 @@
   @media (prefers-reduced-motion:reduce){.col .track{animation:none}}
   .lc{display:flex;flex-direction:column;justify-content:space-between;width:100%;flex:none;background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 22px 18px;color:inherit;box-shadow:0 1px 2px rgba(0,0,0,.04),0 16px 34px -26px rgba(0,0,0,.3);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;position:relative}
   .lc::before{content:"”";position:absolute;right:16px;top:6px;font-family:var(--display);font-size:56px;line-height:1;color:var(--line)}
-  .lc:hover{transform:translateY(-4px);box-shadow:0 30px 50px -30px rgba(0,0,0,.45)}
+  @media (hover:hover){.lc:hover{transform:translateY(-4px);box-shadow:0 30px 50px -30px rgba(0,0,0,.45)}}
   .lc p{margin:0 0 18px;font-family:var(--display);font-size:clamp(17px,1.2vw,20px);line-height:1.35;color:var(--ink);letter-spacing:-.005em;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
   .lc .who{display:flex;align-items:center;gap:10px}
   .lc .av{width:34px;height:34px;border-radius:50%;object-fit:cover;background:#ece9e2;flex:none;display:grid;place-items:center;font-family:var(--mono);font-size:11px;color:var(--graphite)}
@@ -291,9 +301,9 @@
   footer .big em{font-family:var(--display);font-style:italic;font-weight:400}
   footer .note{font-family:var(--display);font-style:italic;color:var(--graphite);font-size:18px;margin:0 0 22px}
   footer .cta{display:inline-flex;gap:10px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink);border-radius:999px;padding:12px 18px}
-  footer .cta:hover{background:var(--ink);color:#fff}
+  @media (hover:hover){footer .cta:hover{background:var(--ink);color:#fff}}
   footer .contact{display:flex;gap:28px;flex-wrap:wrap;margin:26px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--graphite)}
-  footer .contact a:hover{color:var(--ink)}
+  @media (hover:hover){footer .contact a:hover{color:var(--ink)}}
   footer .meta{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);display:grid;gap:8px;text-align:right}
   @media (max-width:640px){footer .wrap{grid-template-columns:1fr}footer .meta{text-align:left}}
 
@@ -314,7 +324,7 @@
     <nav class="menu" id="menu" data-open="false" aria-label="Site">
       <a href="#top">Home <small>the television</small></a>
       <a href="#work">Work <small>selected films</small></a>
-      <a href="/archive" target="_blank" rel="noopener" id="nav-archive">Archive <small>every film ↗</small></a>
+      <a href="/archive" id="nav-archive">Archive <small>every film</small></a>
       <a href="#love">Kind words <small>from the comments</small></a>
       <a href="#about">About <small>me</small></a>
     </nav>
@@ -370,7 +380,7 @@
   </section>
 
   <section id="all">
-    <a class="folder-link" id="folder-link" href="/archive" target="_blank" rel="noopener" aria-label="Open the full archive in a new tab">
+    <a class="folder-link" id="folder-link" href="/archive" aria-label="Open the full archive">
       <span class="word l">More</span>
       <span class="folder" id="folder">
         <span class="back"></span>
@@ -420,8 +430,8 @@
     <div>
       <p class="big">Have a story <em>to tell?</em></p>
       <p class="note">Or just tell me a film you think was cut well. I'll watch it.</p>
-      <a class="cta" href="mailto:chinmay.s.work@gmail.com">Email Chinmay →</a>
-      <p class="contact"><a href="mailto:chinmay.s.work@gmail.com">chinmay.s.work@gmail.com</a><a href="tel:+919595918598">+91 95959 18598</a></p>
+      <a class="cta" href="mailto:work@chinmay.studio">Email Chinmay →</a>
+      <p class="contact"><a href="mailto:work@chinmay.studio">work@chinmay.studio</a><a href="tel:+919595918598">+91 95959 18598</a></p>
     </div>
     <div class="meta">
       <a href="https://www.linkedin.com/in/chinmayshende" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -441,7 +451,7 @@
   apply(saved || (prefers ? "dark" : "light"));
   const b=document.getElementById("theme");
   let tm=null;
-  if(b) b.addEventListener("click",()=>{ const t=root.getAttribute("data-theme")==="dark"?"light":"dark"; root.classList.add("theming"); apply(t); try{ localStorage.setItem(key,t); }catch(e){} clearTimeout(tm); tm=setTimeout(()=>root.classList.remove("theming"),650); });
+  if(b) b.addEventListener("click",()=>{ const t=root.getAttribute("data-theme")==="dark"?"light":"dark"; root.classList.add("theming"); apply(t); try{ localStorage.setItem(key,t); }catch(e){} clearTimeout(tm); tm=setTimeout(()=>root.classList.remove("theming"),650); b.blur(); });
 })();
 
 /* ---------- FILMS: edit this list. yt = YouTube video ID (the part after v=). src = direct mp4 for self-hosted files. ---------- */
@@ -463,7 +473,7 @@ const SLUG = {"solarsquare-2": "solarsquare-udjayega", "jiomart": "jiomart-full-
 const SHOWREEL_SRC = "showreel.mp4";        // 1280px, ~10 MB — loops muted inside the set
 const SHOWREEL_HD  = "showreel-1080.mp4";   // fallback for the theatre when no YouTube ID is set
 const SHOWREEL_YT  = "78vlyzNkZEw";                    // YouTube video ID (the part after v=) — when set, the theatre plays this in HD
-const EMAIL = "chinmay.s.work@gmail.com";
+const EMAIL = "work@chinmay.studio";
 
 /* ---------- the television: the showreel loops silently in the set; screen or VHF/Sound = sound; UHF/Full screen = full screen with audio ---------- */
 const $ = s => document.querySelector(s);
@@ -555,7 +565,7 @@ fl.addEventListener("mousemove",e=>{const r=fl.getBoundingClientRect();const dx=
 fl.addEventListener("mouseleave",()=>{fo.style.translate="";});
 /* touch screens have no hover: open the folder while it is in view */
 if (matchMedia("(hover:none)").matches && "IntersectionObserver" in window){
-  new IntersectionObserver(es=>es.forEach(e=>fl.classList.toggle("open", e.isIntersecting)),{threshold:.6}).observe(fl);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ fl.classList.add("open"); io.disconnect(); } }),{threshold:.6}); io.observe(fl);
 }
 /* phones in low-power mode block muted autoplay until the first touch */
 document.addEventListener("touchstart",()=>{ if(theatre.hidden) reel.play().catch(()=>{}); },{once:true,passive:true});

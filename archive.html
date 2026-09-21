@@ -11,7 +11,8 @@
 <style>
   :root{--paper:#fff;--ink:#121212;--graphite:#6b6b66;--line:#e6e4de;--tally:#e5352b;
     --display:"Instrument Serif",Georgia,serif;--sans:"Manrope","Helvetica Neue",Arial,sans-serif;--mono:"Share Tech Mono","SFMono-Regular",Menlo,monospace;--pad:clamp(28px,5vw,88px)}
-  *{box-sizing:border-box}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  :focus:not(:focus-visible){outline:none}
   html{-webkit-text-size-adjust:100%}
   @supports (overflow-x:clip){html{overflow-x:clip}}
   img{max-width:100%}
@@ -26,21 +27,21 @@
   @media (max-width:420px){.logo{font-size:11px;letter-spacing:.1em;gap:8px}}
   .logo svg{width:15px;height:15px}
   .back{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
-  .back:hover{color:var(--ink)}
+  @media (hover:hover){.back:hover{color:var(--ink)}}
   /* dark mode */
   html.theming, html.theming *, html.theming *::before, html.theming *::after{transition:background-color .55s ease, color .55s ease, border-color .55s ease, box-shadow .55s ease, fill .55s ease, stroke .55s ease !important}
   html[data-theme="dark"]{--paper:#1a1a1c;--ink:#f2f0ea;--graphite:#a6a29a;--line:#303034;color-scheme:dark}
   html[data-theme="dark"] body{background:var(--paper);color:var(--ink)}
   html[data-theme="dark"] .nav{background:linear-gradient(180deg,rgba(34,34,37,.8),rgba(28,28,31,.72));border-bottom-color:rgba(60,60,66,.8);box-shadow:none}
   html[data-theme="dark"] .menu{background:#222225;border-color:#36363b}
-  html[data-theme="dark"] .menu a:hover{background:#2b2b2f}
-  html[data-theme="dark"] .burger:hover{background:rgba(255,255,255,.06)}
+  @media (hover:hover){html[data-theme="dark"] .menu a:hover{background:#2b2b2f}}
+  @media (hover:hover){html[data-theme="dark"] .burger:hover{background:rgba(255,255,255,.06)}}
   html[data-theme="dark"] .burger span,html[data-theme="dark"] .burger span::before,html[data-theme="dark"] .burger span::after{background:var(--ink)}
   html[data-theme="dark"] .burger[aria-expanded="true"] span{background:transparent}
   html[data-theme="dark"] .theme{border-color:#2c2c31}
   .theme{width:40px;height:40px;display:grid;place-items:center;border-radius:8px;color:var(--ink);margin-right:2px}
-  .theme:hover{background:rgba(0,0,0,.05)}
-  html[data-theme="dark"] .theme:hover{background:rgba(255,255,255,.06)}
+  @media (hover:hover){.theme:hover{background:rgba(0,0,0,.05)}}
+  @media (hover:hover){html[data-theme="dark"] .theme:hover{background:rgba(255,255,255,.06)}}
   .theme svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .theme .sun{display:block}.theme .moon{display:none}
   html[data-theme="dark"] .theme .sun{display:none}html[data-theme="dark"] .theme .moon{display:block}
@@ -55,7 +56,7 @@
   .lede{max-width:62ch;margin:0 0 36px;font-size:15px;color:var(--graphite)}
   .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
   .filters button{font-family:var(--sans);font-weight:600;font-size:13px;border:1px solid var(--line);border-radius:999px;padding:9px 16px;color:var(--graphite);transition:background .2s,color .2s,border-color .2s}
-  .filters button:hover{border-color:var(--ink);color:var(--ink)}
+  @media (hover:hover){.filters button:hover{border-color:var(--ink);color:var(--ink)}}
   .filters button.on{background:var(--ink);border-color:var(--ink);color:#fff}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 32px}
   @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
@@ -65,16 +66,16 @@
   .card .tags span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite);border:1px solid var(--line);border-radius:999px;padding:4px 9px}
   .card .media{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#111;cursor:pointer;isolation:isolate}
   .card .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-  .card .media:hover img{transform:scale(1.04)}
+  @media (hover:hover){.card .media:hover img{transform:scale(1.04)}}
   .card .media iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .card .media .play{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;color:#000;font-size:16px;opacity:0;transform:scale(.8);transition:opacity .25s,transform .35s cubic-bezier(.2,.8,.2,1);pointer-events:none}
-  .card .media:hover .play{opacity:1;transform:none}
+  @media (hover:hover){.card .media:hover .play{opacity:1;transform:none}}
   .card .media.playing .play{display:none}
   .card h3{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
   .card p{margin:4px 0 0;color:var(--graphite);font-size:14px}
   .card .role{margin-top:4px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
   .card .more{margin-top:10px;display:inline-flex;gap:8px;align-items:center;font-weight:600;font-size:13px;border-bottom:1px solid var(--ink);padding-bottom:2px;width:max-content}
-  .card .more:hover{color:var(--graphite);border-color:var(--graphite)}
+  @media (hover:hover){.card .more:hover{color:var(--graphite);border-color:var(--graphite)}}
   .count{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--graphite);margin:-24px 0 28px}
 </style>
 </head>
@@ -101,7 +102,7 @@
   apply(saved || (prefers ? "dark" : "light"));
   const b=document.getElementById("theme");
   let tm=null;
-  if(b) b.addEventListener("click",()=>{ const t=root.getAttribute("data-theme")==="dark"?"light":"dark"; root.classList.add("theming"); apply(t); try{ localStorage.setItem(key,t); }catch(e){} clearTimeout(tm); tm=setTimeout(()=>root.classList.remove("theming"),650); });
+  if(b) b.addEventListener("click",()=>{ const t=root.getAttribute("data-theme")==="dark"?"light":"dark"; root.classList.add("theming"); apply(t); try{ localStorage.setItem(key,t); }catch(e){} clearTimeout(tm); tm=setTimeout(()=>root.classList.remove("theming"),650); b.blur(); });
 })();
 
 const $ = s => document.querySelector(s);
