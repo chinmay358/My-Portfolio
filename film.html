@@ -4,8 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <meta name="description" content="Chinmay Shende — creative producer, 1st AD and editor. Five years of films at Bombay Locale for Zoho, SolarSquare, JioMart and more.">
 <title>Chinmay Shende — Film</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap">
 <style>
@@ -18,6 +21,7 @@
   img{max-width:100%}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75;letter-spacing:.005em;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-appearance:none;appearance:none}
   :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
   .nav{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,rgba(244,243,239,.72),rgba(235,233,227,.62));backdrop-filter:blur(14px) saturate(1.1);-webkit-backdrop-filter:blur(14px) saturate(1.1);border-bottom:1px solid rgba(214,211,202,.8)}
   .nav .in{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 clamp(16px,2.6vw,40px)}
@@ -86,9 +90,8 @@
 (function(){
   const root=document.documentElement, key="chinmay-theme";
   let saved=null; try{ saved=localStorage.getItem(key); }catch(e){}
-  const prefers = matchMedia("(prefers-color-scheme: dark)").matches;
   const apply = t => { if(t==="dark") root.setAttribute("data-theme","dark"); else root.removeAttribute("data-theme"); };
-  apply(saved || (prefers ? "dark" : "light"));
+  apply(saved || "light");
   const b=document.getElementById("theme");
   let tm=null;
   if(b) b.addEventListener("click",()=>{ const t=root.getAttribute("data-theme")==="dark"?"light":"dark"; root.classList.add("theming"); apply(t); try{ localStorage.setItem(key,t); }catch(e){} clearTimeout(tm); tm=setTimeout(()=>root.classList.remove("theming"),650); b.blur(); });
@@ -114,7 +117,7 @@ function render(){
         <dt>Year</dt><dd>${f.year}</dd>
         ${f.role?`<dt>My role</dt><dd>${f.role}</dd>`:""}
         <dt>Studio</dt><dd>Bombay Locale</dd>
-        <dt>Links</dt><dd>${f.yt?`<a href="https://www.youtube.com/watch?v=${f.yt}" target="_blank" rel="noopener">YouTube ↗</a><br>`:""}<a href="${f.studio}" target="_blank" rel="noopener">Studio page ↗</a></dd>
+        <dt>Links</dt><dd>${f.yt?`<a href="https://www.youtube.com/watch?v=${f.yt}" target="_blank" rel="noopener">YouTube ↗</a><br>`:""}</dd>
       </dl>
       <div class="body">
         ${f.desc.split(/(?<=[.!?])\s+(?=[A-Z“"])/).reduce((acc,s)=>{const last=acc[acc.length-1]; if(last && (last+" "+s).length<420) acc[acc.length-1]=last+" "+s; else acc.push(s); return acc;},[]).map(p=>`<p>${p}</p>`).join("")}

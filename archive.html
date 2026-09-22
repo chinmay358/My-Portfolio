@@ -4,8 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <meta name="description" content="Chinmay Shende — creative producer, 1st AD and editor. Five years of films at Bombay Locale for Zoho, SolarSquare, JioMart and more.">
 <title>Chinmay Shende — Work</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap">
 <style>
@@ -97,9 +100,8 @@
 (function(){
   const root=document.documentElement, key="chinmay-theme";
   let saved=null; try{ saved=localStorage.getItem(key); }catch(e){}
-  const prefers = matchMedia("(prefers-color-scheme: dark)").matches;
   const apply = t => { if(t==="dark") root.setAttribute("data-theme","dark"); else root.removeAttribute("data-theme"); };
-  apply(saved || (prefers ? "dark" : "light"));
+  apply(saved || "light");
   const b=document.getElementById("theme");
   let tm=null;
   if(b) b.addEventListener("click",()=>{ const t=root.getAttribute("data-theme")==="dark"?"light":"dark"; root.classList.add("theming"); apply(t); try{ localStorage.setItem(key,t); }catch(e){} clearTimeout(tm); tm=setTimeout(()=>root.classList.remove("theming"),650); b.blur(); });
