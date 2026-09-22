@@ -220,7 +220,7 @@
   .folder{position:relative;display:block;width:238px;height:190px;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;will-change:transform;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
   .folder .back{position:absolute;left:0;top:0;width:100%;height:100%;border-radius:16px;background:linear-gradient(176deg,#dcdedf 5%,rgba(187,188,189,.78) 40%,#c9cbcd 100%)}
   .folder .back::before{content:"";position:absolute;left:0;top:-14px;width:40%;height:30px;border-radius:12px 14px 0 0;background:#dcdedf;clip-path:polygon(0 0,82% 0,100% 100%,0 100%)}
-  .folder .paper{position:absolute;display:grid;place-items:end start;padding:8px 10px;border-radius:10px;overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(white,black);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;box-shadow:0 -1px 2px rgba(120,120,120,.25);color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+  .folder .paper{position:absolute;display:grid;place-items:end start;padding:8px 10px;border-radius:10px;overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(white,black);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;box-shadow:0 -1px 2px rgba(120,120,120,.25);color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;transition:transform .7s cubic-bezier(.34,1.4,.4,1)}
   .folder .paper img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.5) contrast(1.05);transition:filter .5s}
   @media (hover:hover){.folder-link:hover .paper img{filter:none}}
   .folder .p1{left:77px;top:12px;width:160px;height:121px;background:linear-gradient(150deg,#1f2a3c,#3b5378);transform:rotate(6deg);z-index:1}
@@ -247,17 +247,7 @@
     .folder-link{--fs:.74}
   }
   @media (max-width:360px){.folder-link{--fs:.64}}
-  @media (hover:none){
-    .folder-link.open .front{animation:flap .9s cubic-bezier(.2,.8,.2,1) both}
-    .folder-link.open .p1{animation:pop1 .9s cubic-bezier(.2,.8,.2,1) both}
-    .folder-link.open .p2{animation:pop2 .9s cubic-bezier(.2,.8,.2,1) .06s both}
-    .folder-link.open .p3{animation:pop3 .9s cubic-bezier(.2,.8,.2,1) .12s both}
-    .folder-link.open .word.l{transform:translateX(-8px)}.folder-link.open .word.r{transform:translateX(8px)}
-  }
-  @keyframes flap{0%{transform:rotateX(0)}60%{transform:rotateX(-38deg)}100%{transform:rotateX(-32deg)}}
-  @keyframes pop1{0%{transform:rotate(6deg)}60%{transform:translate(6px,-56px) rotate(10deg)}100%{transform:translate(6px,-46px) rotate(9deg)}}
-  @keyframes pop2{0%{transform:rotate(-1deg)}60%{transform:translate(-8px,-66px) rotate(-7deg)}100%{transform:translate(-8px,-56px) rotate(-6deg)}}
-  @keyframes pop3{0%{transform:rotate(2deg)}60%{transform:translate(4px,-50px) rotate(4deg)}100%{transform:translate(4px,-40px) rotate(3deg)}}
+  @media (hover:none){.folder-link.open .word.l{transform:translateX(-8px)}.folder-link.open .word.r{transform:translateX(8px)}}
   .folder{transform:scale(var(--fs));margin:calc(190px*(var(--fs) - 1)/2) calc(238px*(var(--fs) - 1)/2)}
   @media (prefers-reduced-motion:reduce){.folder,.folder .front,.folder .paper,.folder-link .word{transition:none}}
   /* kind words — four columns of comments drifting up and down, fading at the edges */
@@ -586,7 +576,11 @@ fl.addEventListener("mousemove",e=>{const r=fl.getBoundingClientRect();const dx=
 fl.addEventListener("mouseleave",()=>{fo.style.translate="";});
 /* touch screens have no hover: open the folder while it is in view */
 if (matchMedia("(hover:none)").matches && "IntersectionObserver" in window){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ setTimeout(()=>fl.classList.add("open"),250); io.disconnect(); } }),{threshold:.6}); io.observe(fl);
+  // opens every time it scrolls into view, closes when it leaves — in both directions
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.intersectionRatio>=.65) fl.classList.add("open");
+    else if(e.intersectionRatio<=.25) fl.classList.remove("open");
+  }),{threshold:[.25,.65]}); io.observe(fl);
 }
 /* phones in low-power mode block muted autoplay until the first touch */
 document.addEventListener("touchstart",()=>{ if(theatre.hidden) reel.play().catch(()=>{}); },{once:true,passive:true});
