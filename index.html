@@ -249,6 +249,9 @@
   @media (max-width:360px){.folder-link{--fs:.64}}
   @media (hover:none){
     .folder-link.open .word.l{transform:translateX(-8px)}.folder-link.open .word.r{transform:translateX(8px)}
+    /* Safari z-fights coplanar layers inside preserve-3d (the flap shows through) — go flat and fold with a local perspective instead */
+    .folder{transform-style:flat;-webkit-transform-style:flat}
+    .folder-link.open .front{transform:perspective(700px) rotateX(-32deg)}
   }
   .folder{transform:scale(var(--fs));margin:calc(190px*(var(--fs) - 1)/2) calc(238px*(var(--fs) - 1)/2)}
   @media (prefers-reduced-motion:reduce){.folder,.folder .front,.folder .paper,.folder-link .word{transition:none}}
