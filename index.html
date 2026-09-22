@@ -74,8 +74,7 @@
   /* folder in the dark: graphite body, slate flap */
   html[data-theme="dark"] .folder .back{background:linear-gradient(176deg,#3a3a3f 5%,rgba(44,44,49,.9) 40%,#2a2a2e 100%)}
   html[data-theme="dark"] .folder .back::before{background:#3a3a3f}
-  html[data-theme="dark"] .folder .front{background:linear-gradient(0deg,#3b3b40 0%,#343438 54%,#2a2a2e 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 30px -22px rgba(0,0,0,.8);color:#8d8a84}
-  html[data-theme="dark"] .folder .front::before{background:rgba(255,255,255,.05)}
+  html[data-theme="dark"] .folder .front{background:linear-gradient(105deg,rgba(255,255,255,.05) 0 17%,rgba(255,255,255,0) 17.6%),linear-gradient(0deg,#3b3b40 0%,#343438 54%,#2a2a2e 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 30px -22px rgba(0,0,0,.8);color:#8d8a84}
   html[data-theme="dark"] .folder .paper{box-shadow:0 -1px 2px rgba(0,0,0,.5)}
   /* hamburger + dropdown menu */
   .burger{width:40px;height:40px;display:grid;place-items:center;border-radius:8px}
@@ -218,17 +217,16 @@
   .folder-link .word{font-family:var(--display);font-style:italic;letter-spacing:-.02em;font-size:clamp(36px,4.2vw,60px);line-height:1;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
   @media (hover:hover){.folder-link:hover .word.l{transform:translateX(-10px)}}
   @media (hover:hover){.folder-link:hover .word.r{transform:translateX(10px)}}
-  .folder{position:relative;display:block;width:238px;height:190px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+  .folder{position:relative;display:block;width:238px;height:190px;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;will-change:transform;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
   .folder .back{position:absolute;left:0;top:0;width:100%;height:100%;border-radius:16px;background:linear-gradient(176deg,#dcdedf 5%,rgba(187,188,189,.78) 40%,#c9cbcd 100%)}
   .folder .back::before{content:"";position:absolute;left:0;top:-14px;width:40%;height:30px;border-radius:12px 14px 0 0;background:#dcdedf;clip-path:polygon(0 0,82% 0,100% 100%,0 100%)}
-  .folder .paper{position:absolute;display:grid;place-items:end start;padding:8px 10px;border-radius:10px;overflow:hidden;box-shadow:0 -1px 2px rgba(120,120,120,.25);color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+  .folder .paper{position:absolute;display:grid;place-items:end start;padding:8px 10px;border-radius:10px;overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(white,black);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;box-shadow:0 -1px 2px rgba(120,120,120,.25);color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
   .folder .paper img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.5) contrast(1.05);transition:filter .5s}
   @media (hover:hover){.folder-link:hover .paper img{filter:none}}
   .folder .p1{left:77px;top:12px;width:160px;height:121px;background:linear-gradient(150deg,#1f2a3c,#3b5378);transform:rotate(6deg);z-index:1}
   .folder .p2{left:42px;top:22px;width:122px;height:126px;background:linear-gradient(150deg,#3a1d1d,#7a3b3b);transform:rotate(-1deg);z-index:2}
   .folder .p3{left:94px;top:48px;width:102px;height:102px;background:linear-gradient(150deg,#243a2a,#3f6b4a);transform:rotate(2deg);z-index:3}
-  .folder .front{position:absolute;left:0;top:43px;width:238px;height:147px;border-radius:16px;display:grid;place-items:center;color:#b9b9bd;background:linear-gradient(0deg,#fff 0%,#fafafa 54%,#e4e4e7 100%);box-shadow:inset 0 2px 0 #fff,0 12px 30px -22px rgba(0,0,0,.35);transform-origin:50% 100%;transition:transform .55s cubic-bezier(.2,.8,.2,1);z-index:4;overflow:hidden}
-  .folder .front::before{content:"";position:absolute;left:-94px;top:12px;width:97px;height:180px;background:#fff;transform:rotate(15deg);opacity:.9}
+  .folder .front{position:absolute;left:0;top:43px;width:238px;height:147px;border-radius:16px;display:grid;place-items:center;color:#b9b9bd;background:linear-gradient(105deg,rgba(255,255,255,.95) 0 17%,rgba(255,255,255,0) 17.6%),linear-gradient(0deg,#fff 0%,#fafafa 54%,#e4e4e7 100%);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;box-shadow:inset 0 2px 0 #fff,0 12px 30px -22px rgba(0,0,0,.35);transform-origin:50% 100%;transition:transform .55s cubic-bezier(.2,.8,.2,1);z-index:4;overflow:hidden}
   .folder .front svg{width:36px;height:36px;position:relative}
   .folder-link.open .folder{transform:scale(calc(var(--fs)*1.04)) translateY(-4px)}
   @media (hover:hover){.folder-link:hover .folder{transform:scale(calc(var(--fs)*1.04)) translateY(-4px)}}
@@ -320,7 +318,7 @@
   footer .note{font-family:var(--display);font-style:italic;color:var(--graphite);font-size:18px;margin:0 0 22px}
   footer .cta{display:inline-flex;gap:10px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink);border-radius:999px;padding:12px 18px}
   @media (hover:hover){footer .cta:hover{background:var(--ink);color:#fff}}
-  footer .contact{display:flex;gap:28px;flex-wrap:wrap;margin:0 0 26px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--ink)}
+  footer .contact{display:flex;gap:28px;flex-wrap:wrap;margin:26px 0 0;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--ink)}
   @media (hover:hover){footer .contact a:hover{color:var(--ink)}}
   footer .meta{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);display:grid;gap:8px;text-align:right}
   @media (max-width:640px){footer .wrap{grid-template-columns:1fr}footer .meta{text-align:left}}
@@ -446,8 +444,8 @@
     <div>
       <p class="big">Have a story <em>to tell?</em></p>
       <p class="note">Or just tell me a film you think was cut well. I'll watch it.</p>
-      <p class="contact"><a href="mailto:work@chinmay.studio">work@chinmay.studio</a><a href="tel:+919595918598">+91 95959 18598</a></p>
       <a class="cta" href="mailto:work@chinmay.studio">Email Chinmay →</a>
+      <p class="contact"><a href="mailto:work@chinmay.studio">work@chinmay.studio</a><a href="tel:+919595918598">+91 95959 18598</a></p>
     </div>
     <div class="meta">
       <a href="https://www.linkedin.com/in/chinmayshende" target="_blank" rel="noopener">LinkedIn ↗</a>
