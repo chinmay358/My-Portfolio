@@ -219,29 +219,29 @@
   #all{align-content:center;justify-items:center}
   .folder-link{--fs:1;display:flex;align-items:center;gap:clamp(28px,4vw,56px);text-decoration:none;color:var(--ink);padding:40px;perspective:900px}
   .folder-link .word{font-family:var(--display);font-style:italic;letter-spacing:-.02em;font-size:clamp(36px,4.2vw,60px);line-height:1;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-  @media (hover:hover){.folder-link:hover .word.l{transform:translateX(-10px)}}
-  @media (hover:hover){.folder-link:hover .word.r{transform:translateX(10px)}}
+  @media (hover:hover){.folder-link:has(.folder:hover) .word.l{transform:translateX(-10px)}}
+  @media (hover:hover){.folder-link:has(.folder:hover) .word.r{transform:translateX(10px)}}
   .folder{position:relative;display:block;width:238px;height:190px;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
   .folder .back{position:absolute;left:0;top:0;width:100%;height:100%;border-radius:16px;background:linear-gradient(176deg,#dcdedf 5%,rgba(187,188,189,.78) 40%,#c9cbcd 100%)}
   .folder .back::before{content:"";position:absolute;left:0;top:-14px;width:40%;height:30px;border-radius:12px 14px 0 0;background:#dcdedf;clip-path:polygon(0 0,82% 0,100% 100%,0 100%)}
   .folder .paper{position:absolute;display:grid;place-items:end start;padding:8px 10px;border-radius:10px;overflow:hidden;clip-path:inset(0 round 10px);-webkit-clip-path:inset(0 round 10px);box-shadow:0 -1px 2px rgba(120,120,120,.25);color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;transition:transform .7s cubic-bezier(.34,1.4,.4,1)}
   .folder .paper img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.5) contrast(1.05);transition:filter .5s}
-  @media (hover:hover){.folder-link:hover .paper img{filter:none}}
+  @media (hover:hover){.folder:hover .paper img{filter:none}}
   .folder .p1{left:77px;top:12px;width:160px;height:121px;background:linear-gradient(150deg,#1f2a3c,#3b5378);transform:rotate(6deg);z-index:1}
   .folder .p2{left:42px;top:22px;width:122px;height:126px;background:linear-gradient(150deg,#3a1d1d,#7a3b3b);transform:rotate(-1deg);z-index:2}
   .folder .p3{left:94px;top:48px;width:102px;height:102px;background:linear-gradient(150deg,#243a2a,#3f6b4a);transform:rotate(2deg);z-index:3}
   .folder .front{position:absolute;left:0;top:43px;width:238px;height:147px;border-radius:16px;display:grid;place-items:center;color:#b9b9bd;background:linear-gradient(105deg,rgba(255,255,255,.95) 0 17%,rgba(255,255,255,0) 17.6%),linear-gradient(0deg,#fff 0%,#fafafa 54%,#e4e4e7 100%);backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:inset 0 2px 0 #fff,0 12px 30px -22px rgba(0,0,0,.35);transform-origin:50% 100%;transition:transform .55s cubic-bezier(.2,.8,.2,1);z-index:4;overflow:hidden}
   .folder .front svg{width:36px;height:36px;position:relative}
   .folder-link.open .folder{transform:scale(calc(var(--fs)*1.04)) translateY(-4px)}
-  @media (hover:hover){.folder-link:hover .folder{transform:scale(calc(var(--fs)*1.04)) translateY(-4px)}}
+  @media (hover:hover){.folder:hover{transform:scale(calc(var(--fs)*1.04)) translateY(-4px)}}
   .folder-link.open .front{transform:rotateX(-32deg)}
-  @media (hover:hover){.folder-link:hover .front{transform:rotateX(-32deg)}}
+  @media (hover:hover){.folder:hover .front{transform:rotateX(-32deg)}}
   .folder-link.open .p1{transform:translate(6px,-46px) rotate(9deg)}
-  @media (hover:hover){.folder-link:hover .p1{transform:translate(6px,-46px) rotate(9deg)}}
+  @media (hover:hover){.folder:hover .p1{transform:translate(6px,-46px) rotate(9deg)}}
   .folder-link.open .p2{transform:translate(-8px,-56px) rotate(-6deg)}
-  @media (hover:hover){.folder-link:hover .p2{transform:translate(-8px,-56px) rotate(-6deg)}}
+  @media (hover:hover){.folder:hover .p2{transform:translate(-8px,-56px) rotate(-6deg)}}
   .folder-link.open .p3{transform:translate(4px,-40px) rotate(3deg)}
-  @media (hover:hover){.folder-link:hover .p3{transform:translate(4px,-40px) rotate(3deg)}}
+  @media (hover:hover){.folder:hover .p3{transform:translate(4px,-40px) rotate(3deg)}}
   .folder-link.open .paper img{filter:none}
   .folder-link:focus-visible{outline:2px solid var(--ink);outline-offset:8px;border-radius:12px}
   @media (max-width:700px){
@@ -617,8 +617,8 @@ cols.forEach((rows,i)=>{ const tr=$("#c"+i+" .track"); const html=rows.map(card)
 /* ---------- folder: magnetic pull toward the cursor, links to the archive page ---------- */
 const fl=$("#folder-link"), fo=$("#folder");
 fl.href = ARCHIVE_URL; $("#nav-archive").href = ARCHIVE_URL;
-fl.addEventListener("mousemove",e=>{const r=fl.getBoundingClientRect();const dx=(e.clientX-(r.left+r.width/2))/r.width, dy=(e.clientY-(r.top+r.height/2))/r.height;fo.style.translate=`${dx*18}px ${dy*14}px`;});
-fl.addEventListener("mouseleave",()=>{fo.style.translate="";});
+fo.addEventListener("mousemove",e=>{const r=fl.getBoundingClientRect();const dx=(e.clientX-(r.left+r.width/2))/r.width, dy=(e.clientY-(r.top+r.height/2))/r.height;fo.style.translate=`${dx*18}px ${dy*14}px`;});
+fo.addEventListener("mouseleave",()=>{fo.style.translate="";});
 /* touch screens have no hover: open the folder while it is in view */
 if (matchMedia("(hover:none)").matches && "IntersectionObserver" in window){
   // opens every time it scrolls into view, closes when it leaves — in both directions
