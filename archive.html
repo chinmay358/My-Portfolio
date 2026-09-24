@@ -897,8 +897,12 @@ function render(filter="All"){
     </article>`).join("");
   $("#count").textContent = rows.length + " films";
 }
-render();
-$("#filters").addEventListener("click", e=>{ const b=e.target.closest("[data-f]"); if(!b) return; document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x===b)); render(b.dataset.f); });
+/* remember the filter so Back from a film page lands on the same view */
+let saved=null; try{ saved=sessionStorage.getItem("chinmay-filter"); }catch(e){}
+if(saved && document.querySelector(`[data-f="${saved}"]`)){ document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x.dataset.f===saved)); render(saved); } else render();
+$("#filters").addEventListener("click", e=>{ const b=e.target.closest("[data-f]"); if(!b) return; document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x===b)); render(b.dataset.f); try{ sessionStorage.setItem("chinmay-filter",b.dataset.f); }catch(e){} });
+document.addEventListener("click", e=>{ if(e.target.closest("a.more")){ try{ sessionStorage.setItem("chinmay-from","archive"); }catch(e){} } });
+if("scrollRestoration" in history) history.scrollRestoration="auto";
 function play(m){
   if (!m.dataset.yt || m.classList.contains("playing")) return;
   document.querySelectorAll(".media.playing").forEach(x=>{ x.classList.remove("playing"); x.querySelector("iframe")?.remove(); });

@@ -180,6 +180,7 @@
   .tape.playing .poster::after{opacity:.6}
   @media (hover:hover){.tape:hover .poster::after{opacity:.6}}
   @media (hover:hover){.tape:hover .poster img.frame{transform:scale(1.015)}}
+  .tape[data-id="nidana"] .poster::after{background:linear-gradient(180deg,rgba(18,16,12,.78),rgba(18,16,12,.42) 32%,rgba(18,16,12,0) 58%,rgba(18,16,12,.55))}  /* light UI frame: darker top so the title reads */
   .tape .mark{position:absolute;left:clamp(24px,3vw,44px);right:clamp(24px,3vw,44px);top:clamp(22px,3vw,40px);z-index:2;font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(34px,4.2vw,76px);line-height:1;letter-spacing:-.015em;color:#f4f1ea;pointer-events:none;transition:opacity .5s}
   .tape .mark .k{display:block;font-family:var(--mono);font-style:normal;font-size:clamp(9px,.75vw,12px);letter-spacing:.18em;text-transform:uppercase;color:rgba(244,241,234,.8);margin-bottom:14px}
   .tape .mark .t{display:block;font-family:var(--sans);font-style:normal;font-weight:500;font-size:clamp(12px,.95vw,16px);letter-spacing:.01em;color:rgba(244,241,234,.85);margin-top:12px;max-width:40ch}
@@ -214,6 +215,8 @@
     .tape .pill{left:18px;bottom:18px;font-size:17px;padding:9px 16px;gap:8px}
   }
   @media (max-width:700px) and (orientation:landscape){.tape{aspect-ratio:16/9}}
+  /* short screens (phones held sideways): a tile never taller than the screen, so its button stays reachable */
+  @media (max-height:520px){.tape{aspect-ratio:auto;height:calc(var(--vh) - var(--nav))}.tape .mark{font-size:clamp(26px,6vh,40px)}.tape .pill{font-size:16px;padding:8px 14px}}
   @media (prefers-reduced-motion:reduce){.tape .badge svg{animation:none}}
   /* archive folder - white room, one folder, opens on hover, click opens the archive in a new tab */
   #all{align-content:center;justify-items:center}
@@ -593,6 +596,7 @@ $("#grid").innerHTML = FILMS.filter(f=>f.selected).map((f,i)=>`
     </div>
   </article>`).join("");
 document.querySelector("footer .cta").href="mailto:"+EMAIL;
+document.addEventListener("click", e=>{ if(e.target.closest(".tape a")){ try{ sessionStorage.setItem("chinmay-from","home"); }catch(e){} } });
 
 
 /* touch screens: the film on screen is in colour, the rest stay monochrome */
