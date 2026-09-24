@@ -6,8 +6,8 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
-<meta name="description" content="Chinmay Shende — creative producer, 1st AD and editor. Five years of films at Bombay Locale for Zoho, SolarSquare, JioMart and more.">
-<title>Chinmay Shende — Work</title>
+<meta name="description" content="Chinmay Shende - creative producer, 1st AD and editor. Five years of films at Bombay Locale for Zoho, SolarSquare, JioMart and more.">
+<title>Chinmay Shende - Work</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap">
@@ -90,7 +90,7 @@
 </div></header>
 <main>
   <h1>All work</h1>
-  <p class="lede">Five years of films at Bombay Locale — commercials, product explainers, brand films and launch campaigns for SaaS and consumer companies. Browse, filter, press play.</p>
+  <p class="lede">Five years of films at Bombay Locale - commercials, product explainers, brand films and launch campaigns for SaaS and consumer companies. Browse, filter, press play.</p>
   <div class="filters" id="filters"><button type="button" class="on" data-f="All">All</button><button type="button" data-f="Ads">Ads</button><button type="button" data-f="Brand film">Brand film</button><button type="button" data-f="SaaS">SaaS</button><button type="button" data-f="Consumer">Consumer</button></div>
   <p class="count" id="count"></p>
   <div class="grid" id="grid"></div>
@@ -110,19 +110,103 @@
 const $ = s => document.querySelector(s);
 const BL = "https://www.bombaylocale.com/work/";
 const THUMBS = {};
-/* ---------- every film on bombaylocale.com/work — role is set where Chinmay has confirmed it; delete entries you weren't on ---------- */
+/* ---------- every film on bombaylocale.com/work - role is set where Chinmay has confirmed it; delete entries you weren't on ---------- */
 const FILMS = [
 {
-"year": "2026",
-"client": "Zoho CRM",
-"title": "Run Your Sales on Zoho",
+"year": "2025",
+"client": "SolarSquare",
+"title": "Vendor Laapata",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "solarsquare-vendor-laapata",
+"yt": "1O0b9VD718w",
+"og": "",
+"role": "Creative producer · Editor"
+},
+{
+"year": "2025",
+"client": "JioMart",
+"title": "Paisa Vasool - Wedding invitation",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "jiomart-full-paisa-vasool-sale-wedding-invitation",
+"yt": "2g39DrpzqQk",
+"og": "",
+"role": "Creative producer · Editor"
+},
+{
+"year": "2025",
+"client": "Bigin 360 by Zoho",
+"title": "The Case of #TheMissingCustomers",
 "tags": [
 "Live Action",
 "Ads",
 "SaaS"
 ],
-"slug": "zoho-ryb-sales-zoho-crm",
-"yt": "j_J8nBtemtw",
+"slug": "zoho-bigin-360-case-of-the-missing-customers",
+"yt": "HOxX2GpDphw",
+"og": "",
+"role": "Creative producer · Editor"
+},
+{
+"year": "2025",
+"client": "SaaSBoomi",
+"title": "India SaaS Anthem",
+"tags": [
+"Live Action",
+"Brand film",
+"Consumer"
+],
+"slug": "saasboomi-saas-anthem",
+"yt": "37efFi5SxCc",
+"og": "",
+"role": "Producer · Editor"
+},
+{
+"year": "2026",
+"client": "Nidana",
+"title": "Making Healthcare Simpler",
+"tags": [
+"Animated",
+"Ads",
+"SaaS"
+],
+"slug": "nidana-making-healthcare-simpler",
+"yt": "B0prBi6U75c",
+"og": "",
+"role": "Concept, script, direction & edit"
+},
+{
+"year": "2025",
+"client": "Zoho",
+"title": "#ItTakeTime",
+"tags": [
+"Live Action",
+"Brand film",
+"SaaS"
+],
+"slug": "zoho-it-takes-time",
+"yt": "4ivmul54L-w",
+"og": "",
+"role": ""
+},
+{
+"year": "2023",
+"client": "Clear",
+"title": "Finance Cloud explainer",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "clear-finance-transformed",
+"yt": "QC7FQGBUHos",
 "og": "",
 "role": ""
 },
@@ -141,6 +225,48 @@ const FILMS = [
 "role": ""
 },
 {
+"year": "2023",
+"client": "Toplyne",
+"title": "Why build internal tools?",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "toplyne-internal-tools",
+"yt": "Rs1F-meWs4w",
+"og": "",
+"role": ""
+},
+{
+"year": "2026",
+"client": "Zoho CRM",
+"title": "Run Your Sales on Zoho",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "zoho-ryb-sales-zoho-crm",
+"yt": "j_J8nBtemtw",
+"og": "",
+"role": ""
+},
+{
+"year": "2026",
+"client": "SolarSquare",
+"title": "Performance ki Guarantee? SolarSquare Dega!",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "solarsquare-performance-guarantee",
+"yt": "nzehf8bLT1g",
+"og": "",
+"role": "Creative producer · Editor"
+},
+{
 "year": "2026",
 "client": "Zoho Desk",
 "title": "Run your Customer Service on Zoho",
@@ -151,6 +277,34 @@ const FILMS = [
 ],
 "slug": "zoho-ryb-customer-service-zoho-desk",
 "yt": "oYf37cZhQAs",
+"og": "",
+"role": ""
+},
+{
+"year": "2024",
+"client": "Fincent",
+"title": "Wellness Centre 911",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "fincent-wellness",
+"yt": "W4UIOhILE90",
+"og": "",
+"role": ""
+},
+{
+"year": "2022",
+"client": "Defy",
+"title": "Beatboxing Dulhan",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "defy-beatbox-dulhan",
+"yt": "7nlgP18fEoA",
 "og": "",
 "role": ""
 },
@@ -169,6 +323,20 @@ const FILMS = [
 "role": ""
 },
 {
+"year": "2025",
+"client": "JioMart",
+"title": "Smart savings in everyday life",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "jiomart-full-paisa-vasool-sale-gym-membership",
+"yt": "kcJ3TjR62ds",
+"og": "",
+"role": "Creative producer · Editor"
+},
+{
 "year": "2026",
 "client": "Zoho Projects",
 "title": "Move Your Projects Forward With Zoho",
@@ -183,6 +351,20 @@ const FILMS = [
 "role": ""
 },
 {
+"year": "2024",
+"client": "Oswaal Books",
+"title": "Jeetu bhaiya in PTA meeting",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "oswaal-pta-meeting",
+"yt": "6gOcpXsgnlI",
+"og": "",
+"role": ""
+},
+{
 "year": "2026",
 "client": "Zoho Books",
 "title": "Move Your Accounting Forward With Zoho",
@@ -193,6 +375,34 @@ const FILMS = [
 ],
 "slug": "zoho-dbs-accounting-zoho-books",
 "yt": "bFIYVZE4RAM",
+"og": "",
+"role": ""
+},
+{
+"year": "2023",
+"client": "Clear",
+"title": "File GST please",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "clear-file-gst-please",
+"yt": "GKhzyLs3JZI",
+"og": "",
+"role": ""
+},
+{
+"year": "2023",
+"client": "Toplyne",
+"title": "Product as salesperson",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "toplyne-plg",
+"yt": "ddioK9yxZM0",
 "og": "",
 "role": ""
 },
@@ -212,6 +422,20 @@ const FILMS = [
 },
 {
 "year": "2026",
+"client": "SolarSquare",
+"title": "Solar ke saath Guarantee? Sirf SolarSquare Dega!",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "solarsquare-guarantee-sirf-solarsquare",
+"yt": "GYY2GjpoMZI",
+"og": "",
+"role": "Creative producer · Editor"
+},
+{
+"year": "2026",
 "client": "Zoho Workplace",
 "title": "Run Your Workplace on Zoho",
 "tags": [
@@ -225,16 +449,16 @@ const FILMS = [
 "role": ""
 },
 {
-"year": "2026",
-"client": "Zoho Workplace",
-"title": "Move Your Teamwork Forward With Zoho",
+"year": "2023",
+"client": "Clear",
+"title": "ITC stuck",
 "tags": [
 "Live Action",
 "Ads",
 "SaaS"
 ],
-"slug": "zoho-dbs-teamwork-zoho-workplace",
-"yt": "X7D-X1eqTlc",
+"slug": "clear-itc-stuck",
+"yt": "DNmPZPH3JYc",
 "og": "",
 "role": ""
 },
@@ -253,102 +477,60 @@ const FILMS = [
 "role": ""
 },
 {
-"year": "2026",
-"client": "Zoho People",
-"title": "Move Your HR Ops Forward With Zoho",
+"year": "2023",
+"client": "Toplyne",
+"title": "RevOps - forward revenue",
 "tags": [
 "Live Action",
 "Ads",
 "SaaS"
 ],
-"slug": "zoho-dbs-hr-ops-zoho-people",
-"yt": "Wr7jZRXJfyc",
-"og": "",
-"role": ""
-},
-{
-"year": "2026",
-"client": "Zoho Cliq",
-"title": "Move Your Work Chats Forward With Zoho",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "zoho-dbs-work-chats-zoho-cliq",
-"yt": "_Yn9R-EAYFE",
+"slug": "toplyne-revenue",
+"yt": "GEFuYN2phy0",
 "og": "",
 "role": ""
 },
 {
 "year": "2026",
-"client": "Bigin by Zoho",
-"title": "Aapke Business Ka Simple CRM (Diwali)",
+"client": "Zoho Workplace",
+"title": "Move Your Teamwork Forward With Zoho",
 "tags": [
 "Live Action",
 "Ads",
 "SaaS"
 ],
-"slug": "bigin-by-zoho-diwali-gift-your-business-crm",
-"yt": "jqEA4Vxmsl4",
+"slug": "zoho-dbs-teamwork-zoho-workplace",
+"yt": "X7D-X1eqTlc",
 "og": "",
 "role": ""
 },
 {
-"year": "2025",
-"client": "Zoho",
-"title": "#ItTakeTime",
-"tags": [
-"Live Action",
-"Brand film",
-"SaaS"
-],
-"slug": "zoho-it-takes-time",
-"yt": "4ivmul54L-w",
-"og": "",
-"role": ""
-},
-{
-"year": "2025",
-"client": "Zoho",
-"title": "वक़्त लगता है (Hindi)",
-"tags": [
-"Live Action",
-"Brand film",
-"SaaS"
-],
-"slug": "zoho-it-takes-time-hindi",
-"yt": "lJen7rbL6vg",
-"og": "",
-"role": ""
-},
-{
-"year": "2025",
-"client": "Zoho CRM",
-"title": "20 years of CRM",
-"tags": [
-"Live Action",
-"Brand film",
-"SaaS"
-],
-"slug": "zoho-20-years-of-crm",
-"yt": "HlAgnkoEZx8",
-"og": "",
-"role": "Creative producer"
-},
-{
-"year": "2025",
-"client": "Bigin 360 by Zoho",
-"title": "The Case of #TheMissingCustomers",
+"year": "2024",
+"client": "Fincent",
+"title": "Real Estate 911",
 "tags": [
 "Live Action",
 "Ads",
 "SaaS"
 ],
-"slug": "zoho-bigin-360-case-of-the-missing-customers",
-"yt": "HOxX2GpDphw",
+"slug": "fincent-real-estate",
+"yt": "fQEqPRBTGI4",
 "og": "",
-"role": "Creative producer · Editor"
+"role": ""
+},
+{
+"year": "2022",
+"client": "Defy",
+"title": "NFT twist",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "defy-nft-is-art",
+"yt": "kdYMUhHuI1g",
+"og": "",
+"role": ""
 },
 {
 "year": "2025",
@@ -380,104 +562,6 @@ const FILMS = [
 },
 {
 "year": "2025",
-"client": "SolarSquare",
-"title": "Solar Udjayega",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "solarsquare-udjayega",
-"yt": "VuFMIfVxWS4",
-"og": "",
-"role": "Director · Producer · Editor"
-},
-{
-"year": "2025",
-"client": "SolarSquare",
-"title": "Vendor Laapata",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "solarsquare-vendor-laapata",
-"yt": "1O0b9VD718w",
-"og": "",
-"role": "Creative producer · Editor"
-},
-{
-"year": "2025",
-"client": "SolarSquare",
-"title": "Savings Guarantee?",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "solarsquare-savings-guarantee",
-"yt": "AG1b3VczI_I",
-"og": "",
-"role": "Creative producer · Editor"
-},
-{
-"year": "2025",
-"client": "JioMart",
-"title": "Paisa Vasool — Wedding invitation",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "jiomart-full-paisa-vasool-sale-wedding-invitation",
-"yt": "2g39DrpzqQk",
-"og": "",
-"role": "Creative producer · Editor"
-},
-{
-"year": "2025",
-"client": "JioMart",
-"title": "Smart savings in everyday life",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "jiomart-full-paisa-vasool-sale-gym-membership",
-"yt": "kcJ3TjR62ds",
-"og": "",
-"role": "Creative producer · Editor"
-},
-{
-"year": "2025",
-"client": "JioMart",
-"title": "Value across categories",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "jiomart-full-paisa-vasool-sale-3",
-"yt": "-3s_i5b4Yi4",
-"og": "",
-"role": "Creative producer · Editor"
-},
-{
-"year": "2025",
-"client": "SaaSBoomi",
-"title": "India SaaS Anthem",
-"tags": [
-"Live Action",
-"Brand film",
-"Consumer"
-],
-"slug": "saasboomi-saas-anthem",
-"yt": "37efFi5SxCc",
-"og": "",
-"role": "Producer · Editor"
-},
-{
-"year": "2025",
 "client": "Unboxing BLR",
 "title": "Book teaser",
 "tags": [
@@ -487,76 +571,6 @@ const FILMS = [
 ],
 "slug": "unboxing-blr-teaser",
 "yt": "ZeM_hDeMs-A",
-"og": "",
-"role": ""
-},
-{
-"year": "2024",
-"client": "Fincent",
-"title": "Wellness Centre 911",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "fincent-wellness",
-"yt": "W4UIOhILE90",
-"og": "",
-"role": ""
-},
-{
-"year": "2024",
-"client": "Fincent",
-"title": "Real Estate 911",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "fincent-real-estate",
-"yt": "fQEqPRBTGI4",
-"og": "",
-"role": ""
-},
-{
-"year": "2024",
-"client": "Fincent",
-"title": "Design Studio 911",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "fincent-design-office",
-"yt": "FAOmP-5WVfA",
-"og": "",
-"role": ""
-},
-{
-"year": "2024",
-"client": "Oswaal Books",
-"title": "Jeetu bhaiya in PTA meeting",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "oswaal-pta-meeting",
-"yt": "6gOcpXsgnlI",
-"og": "",
-"role": ""
-},
-{
-"year": "2024",
-"client": "Oswaal Books",
-"title": "Jeetu bhaiya in classroom",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "oswaal-classroom",
-"yt": "LIdrgciVApU",
 "og": "",
 "role": ""
 },
@@ -571,244 +585,6 @@ const FILMS = [
 ],
 "slug": "pingsafe",
 "yt": "nwFEKYiZCoE",
-"og": "",
-"role": ""
-},
-{
-"year": "2023",
-"client": "Clear",
-"title": "Finance Cloud explainer",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "clear-finance-transformed",
-"yt": "QC7FQGBUHos",
-"og": "",
-"role": ""
-},
-{
-"year": "2023",
-"client": "Clear",
-"title": "File GST please",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "clear-file-gst-please",
-"yt": "GKhzyLs3JZI",
-"og": "",
-"role": ""
-},
-{
-"year": "2023",
-"client": "Clear",
-"title": "ITC stuck",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "clear-itc-stuck",
-"yt": "DNmPZPH3JYc",
-"og": "",
-"role": ""
-},
-{
-"year": "2023",
-"client": "Clear",
-"title": "TDS is tedious",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "clear-tedious-tds",
-"yt": "a5qUaxAWRJI",
-"og": "",
-"role": ""
-},
-{
-"year": "2023",
-"client": "Clear",
-"title": "Recon error",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "clear-recon-error",
-"yt": "5T9j3HiLqtY",
-"og": "",
-"role": ""
-},
-{
-"year": "2023",
-"client": "Toplyne",
-"title": "Why build internal tools?",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "toplyne-internal-tools",
-"yt": "Rs1F-meWs4w",
-"og": "",
-"role": ""
-},
-{
-"year": "2023",
-"client": "Toplyne",
-"title": "Product as salesperson",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "toplyne-plg",
-"yt": "ddioK9yxZM0",
-"og": "",
-"role": ""
-},
-{
-"year": "2023",
-"client": "Toplyne",
-"title": "RevOps — forward revenue",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "toplyne-revenue",
-"yt": "GEFuYN2phy0",
-"og": "",
-"role": ""
-},
-{
-"year": "2023",
-"client": "Toplyne",
-"title": "Wrong leads go nowhere",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "toplyne-wrong-customers",
-"yt": "DEZR8LKIRdg",
-"og": "",
-"role": ""
-},
-{
-"year": "2022",
-"client": "Toplyne",
-"title": "PLG SaaS sitcom",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "toplyne",
-"yt": "IKhegBxitmg",
-"og": "",
-"role": ""
-},
-{
-"year": "2022",
-"client": "Zoho CRM",
-"title": "Work less CRM",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "zoho-crm-so-much-time",
-"yt": "BP0U5wmM5aU",
-"og": "",
-"role": ""
-},
-{
-"year": "2022",
-"client": "Zoho CRM",
-"title": "CRMs can be easy",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "zoho-crm-so-easy",
-"yt": "GpVj1KoZ58g",
-"og": "",
-"role": ""
-},
-{
-"year": "2022",
-"client": "Zoho CRM",
-"title": "CRMs can be beautiful",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "zoho-crm-so-beautiful",
-"yt": "QiwmU6tWb0g",
-"og": "",
-"role": ""
-},
-{
-"year": "2022",
-"client": "Zoho CRM",
-"title": "Customers can be friends",
-"tags": [
-"Live Action",
-"Ads",
-"SaaS"
-],
-"slug": "zoho-crm-great-customer-relationships",
-"yt": "glPneOU2bbc",
-"og": "",
-"role": ""
-},
-{
-"year": "2022",
-"client": "Defy",
-"title": "Beatboxing Dulhan",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "defy-beatbox-dulhan",
-"yt": "7nlgP18fEoA",
-"og": "",
-"role": ""
-},
-{
-"year": "2022",
-"client": "Defy",
-"title": "NFT twist",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "defy-nft-is-art",
-"yt": "pzKUEydWSIE",
-"og": "",
-"role": ""
-},
-{
-"year": "2022",
-"client": "Defy",
-"title": "First time",
-"tags": [
-"Live Action",
-"Ads",
-"Consumer"
-],
-"slug": "defy-first-time",
-"yt": "0fx3k9LI1iA",
 "og": "",
 "role": ""
 },
@@ -839,6 +615,272 @@ const FILMS = [
 "yt": "pdcy4fbLwuc",
 "og": "",
 "role": ""
+},
+{
+"year": "2026",
+"client": "Zoho People",
+"title": "Move Your HR Ops Forward With Zoho",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "zoho-dbs-hr-ops-zoho-people",
+"yt": "Wr7jZRXJfyc",
+"og": "",
+"role": ""
+},
+{
+"year": "2025",
+"client": "SolarSquare",
+"title": "Solar Udjayega",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "solarsquare-udjayega",
+"yt": "VuFMIfVxWS4",
+"og": "",
+"role": "Director · Producer · Editor"
+},
+{
+"year": "2026",
+"client": "Zoho Cliq",
+"title": "Move Your Work Chats Forward With Zoho",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "zoho-dbs-work-chats-zoho-cliq",
+"yt": "_Yn9R-EAYFE",
+"og": "",
+"role": ""
+},
+{
+"year": "2023",
+"client": "Clear",
+"title": "TDS is tedious",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "clear-tedious-tds",
+"yt": "a5qUaxAWRJI",
+"og": "",
+"role": ""
+},
+{
+"year": "2026",
+"client": "Bigin by Zoho",
+"title": "Aapke Business Ka Simple CRM (Diwali)",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "bigin-by-zoho-diwali-gift-your-business-crm",
+"yt": "jqEA4Vxmsl4",
+"og": "",
+"role": ""
+},
+{
+"year": "2023",
+"client": "Toplyne",
+"title": "Wrong leads go nowhere",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "toplyne-wrong-customers",
+"yt": "DEZR8LKIRdg",
+"og": "",
+"role": ""
+},
+{
+"year": "2025",
+"client": "Zoho",
+"title": "वक़्त लगता है (Hindi)",
+"tags": [
+"Live Action",
+"Brand film",
+"SaaS"
+],
+"slug": "zoho-it-takes-time-hindi",
+"yt": "lJen7rbL6vg",
+"og": "",
+"role": ""
+},
+{
+"year": "2025",
+"client": "JioMart",
+"title": "Value across categories",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "jiomart-full-paisa-vasool-sale-3",
+"yt": "-3s_i5b4Yi4",
+"og": "",
+"role": "Creative producer · Editor"
+},
+{
+"year": "2024",
+"client": "Oswaal Books",
+"title": "Jeetu bhaiya in classroom",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "oswaal-classroom",
+"yt": "LIdrgciVApU",
+"og": "",
+"role": ""
+},
+{
+"year": "2025",
+"client": "Zoho CRM",
+"title": "20 years of CRM",
+"tags": [
+"Live Action",
+"Brand film",
+"SaaS"
+],
+"slug": "zoho-20-years-of-crm",
+"yt": "HlAgnkoEZx8",
+"og": "",
+"role": "Creative producer"
+},
+{
+"year": "2024",
+"client": "Fincent",
+"title": "Design Studio 911",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "fincent-design-office",
+"yt": "FAOmP-5WVfA",
+"og": "",
+"role": ""
+},
+{
+"year": "2022",
+"client": "Zoho CRM",
+"title": "Work less CRM",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "zoho-crm-so-much-time",
+"yt": "BP0U5wmM5aU",
+"og": "",
+"role": ""
+},
+{
+"year": "2022",
+"client": "Defy",
+"title": "First time",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "defy-first-time",
+"yt": "7hzKZ-WK2nY",
+"og": "",
+"role": ""
+},
+{
+"year": "2022",
+"client": "Zoho CRM",
+"title": "CRMs can be easy",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "zoho-crm-so-easy",
+"yt": "GpVj1KoZ58g",
+"og": "",
+"role": ""
+},
+{
+"year": "2025",
+"client": "SolarSquare",
+"title": "Savings Guarantee?",
+"tags": [
+"Live Action",
+"Ads",
+"Consumer"
+],
+"slug": "solarsquare-savings-guarantee",
+"yt": "AG1b3VczI_I",
+"og": "",
+"role": "Creative producer · Editor"
+},
+{
+"year": "2023",
+"client": "Clear",
+"title": "Recon error",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "clear-recon-error",
+"yt": "5T9j3HiLqtY",
+"og": "",
+"role": ""
+},
+{
+"year": "2022",
+"client": "Toplyne",
+"title": "PLG SaaS sitcom",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "toplyne",
+"yt": "IKhegBxitmg",
+"og": "",
+"role": ""
+},
+{
+"year": "2022",
+"client": "Zoho CRM",
+"title": "CRMs can be beautiful",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "zoho-crm-so-beautiful",
+"yt": "QiwmU6tWb0g",
+"og": "",
+"role": ""
+},
+{
+"year": "2022",
+"client": "Zoho CRM",
+"title": "Customers can be friends",
+"tags": [
+"Live Action",
+"Ads",
+"SaaS"
+],
+"slug": "zoho-crm-great-customer-relationships",
+"yt": "glPneOU2bbc",
+"og": "",
+"role": ""
 }
 ];
 const thumb = f => f.yt ? (THUMBS[f.yt] || "https://img.youtube.com/vi/"+f.yt+"/hqdefault.jpg") : f.og;
@@ -847,7 +889,7 @@ function render(filter="All"){
   $("#grid").innerHTML = rows.map((f,i)=>`
     <article class="card" data-i="${FILMS.indexOf(f)}">
       <div class="tags">${f.tags.map(t=>`<span>${t}</span>`).join("")}</div>
-      <div class="media" ${f.yt?`data-yt="${f.yt}"`:""} role="button" tabindex="0" aria-label="Play ${f.client} — ${f.title}">
+      <div class="media" ${f.yt?`data-yt="${f.yt}"`:""} role="button" tabindex="0" aria-label="Play ${f.client} - ${f.title}">
         <img src="${thumb(f)}" alt="" loading="lazy"><span class="play">▶</span>
       </div>
       <div><h3>${f.client}</h3><p>${f.title}</p>${f.role?`<div class="role">${f.role}</div>`:""}
